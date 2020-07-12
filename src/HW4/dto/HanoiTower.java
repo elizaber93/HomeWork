@@ -206,50 +206,46 @@ public class HanoiTower {
         if (this.isExit) return;
         do {
             if (this.ringNumber % 2 == 0) {
-                if (!checkMove(1, 2)) {
-                    this.makeMove(2, 1);
-                    if (this.isExit) break;
-                } else
-                    this.makeMove(1, 2);
+                makeAutoMove(1,2);
                 if (this.isExit) return;
                 stateOutput();
                 if (isFinish()) break;
 
-                if (!checkMove(1, 3)) {
-                    this.makeMove(3, 1);
-                } else
-                    this.makeMove(1, 3);
+                makeAutoMove(1,3);
                 if (this.isExit) return;
                 stateOutput();
                 if (isFinish()) break;
 
             } else {
-                if (!checkMove(1, 3)) {
-                    this.makeMove(3, 1);
-                } else
-                    this.makeMove(1, 3);
+                makeAutoMove(1,3);
                 if (this.isExit) return;
                 stateOutput();
                 if (isFinish()) break;
 
-                if (!checkMove(1, 2)) {
-                    this.makeMove(2, 1);
-                } else
-                    this.makeMove(1, 2);
+                makeAutoMove(1,2);
                 if (this.isExit) return;
                 stateOutput();
                 if (isFinish()) break;
             }
-            if (!checkMove(2, 3)) {
-                this.makeMove(3, 2);
-            } else
-                this.makeMove(2, 3);
+            makeAutoMove(2,3);
             if (this.isExit) break;
             stateOutput();
             if (isFinish()) break;
         } while (true);
         System.out.println("БДЫЩ-БДЫЩ!! ПОБЕДА!!");
 
+    }
+
+    /***
+     * Метод выполняющий проверку и переход при автоматической игре
+     * @param from - откуда переносится кольцо
+     * @param here - куда переносится
+     */
+    public void makeAutoMove(int from, int here) {
+        if (!checkMove(from, here)) {
+            this.makeMove(here, from);
+        } else
+            this.makeMove(from, here);
     }
 
 }
