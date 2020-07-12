@@ -1,7 +1,7 @@
 package HW3.ObjColor;
 
 import HW3.ObjColor.dto.Color;
-import ObjColor.dto.*;
+//import ObjColor.dto.*;
 
 public class ObjMain1 {
     public static void main(String[] args) {

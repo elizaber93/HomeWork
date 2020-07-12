@@ -1,7 +1,7 @@
 package HW3.ObjPC;
 import HW3.ObjPC.dto.ErrorCodes;
 import HW3.ObjPC.dto.PC;
-import ObjPC.dto.*;
+//import ObjPC.dto.*;
 
 
 public class PCMain {

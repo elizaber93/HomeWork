@@ -2,7 +2,7 @@ package HW3.ObjPC_2;
 
 import HW3.ObjPC_2.dto.ErrorCodes;
 import HW3.ObjPC_2.dto.PC;
-import ObjPC_2.dto.*;
+//import ObjPC_2.dto.*;
 
 public class PC_Main {
     public static void main(String[] args) {
