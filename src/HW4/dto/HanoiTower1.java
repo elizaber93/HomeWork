@@ -1,9 +1,10 @@
 package HW4.dto;
 import java.util.Scanner;
+import java.util.Random;
 
-public class HanoiTower {
+public class HanoiTower1 {
 
-    public HanoiTower() {
+    public HanoiTower1() {
         this.getRingNumber();
         this.initialState();
         this.stateOutput();
@@ -202,42 +203,34 @@ public class HanoiTower {
      * Метод, отвечающий за автоматический режим игры
      */
     public void playAutomat () {
-
-        if (this.isExit) return;
+        Random rnd = new Random();
+        int from = 0;
+        int here = 0;
+        int randomFrom;
+        int randomHere;
+        int n = 3;
         do {
-            if (this.ringNumber % 2 == 0) {
-                makeAutoMove(1,2);
-                if (this.isExit) return;
-                stateOutput();
-                if (isFinish()) break;
+                do {
+                    randomFrom = rnd.nextInt(n)+1;
+                    randomHere = rnd.nextInt(n)+1;
+                } while ((randomHere == here && randomFrom == from) |
+                        (randomFrom == here && randomHere == from) |
+                        randomFrom == here |
+                        !checkMove(randomFrom, randomHere));
 
-                makeAutoMove(1,3);
-                if (this.isExit) return;
-                stateOutput();
-                if (isFinish()) break;
 
-            } else {
-                makeAutoMove(1,3);
-                if (this.isExit) return;
-                stateOutput();
-                if (isFinish()) break;
-
-                makeAutoMove(1,2);
-                if (this.isExit) return;
-                stateOutput();
-                if (isFinish()) break;
-            }
-            makeAutoMove(2,3);
+            makeMove(randomFrom, randomHere);
+            stateOutput();
+            from = randomFrom;
+            here = randomHere;
 
             if (this.isExit) {
                 System.out.println("Всего доброго!");
                 return;
             }
-            stateOutput();
 
-            if (isFinish()) break;
-        } while (true);
-        System.out.println("БДЫЩ-БДЫЩ!! ПОБЕДА!!");
+        } while (!isFinish());
+        System.out.println("БДЫЩ-БДЫЩ!! ПОБЕДА!!\n\n");
 
     }
 
