@@ -17,6 +17,7 @@ public class CalculateMain {
         output(calcCount);
         System.out.println("Количество операций: " + calcCount.getCountOperation());
 
+        System.out.println("CalculatorWithMemory");
         CalculatorWithMemory calcMem = new CalculatorWithMemory(calc);
         //4.1 + 15 * 7 + (28 / 5) ^ 2
         double result;
@@ -31,6 +32,10 @@ public class CalculateMain {
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + calcMem.round(result,3));
         System.out.println(calcMem.div(calcMem.getMemory(),0));
         System.out.println(calcMem.div(calcMem.getMemory(),0.0d));//неопределенность 0/0
+
+
+        CalculatorStringExpression calcString = new CalculatorStringExpression(calcMem);
+        calcString.findExpressionInBrackets("4.1d + 15d * 7d + (2.8d / 5d) ^ 2d");
 
     }
 

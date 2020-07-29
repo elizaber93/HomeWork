@@ -9,7 +9,7 @@ public class CalculatorWithMathCopy implements ICalculate{
         result = a/b;
         if (result == Double.POSITIVE_INFINITY ||
             result == Double.NEGATIVE_INFINITY) {
-            System.out.println("Error!\nДеление на ноль!");
+            System.out.println("Error! Деление на ноль!");
             this.errorCode = -1;
         }
         return result;
