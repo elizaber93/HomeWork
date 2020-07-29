@@ -1,4 +1,4 @@
-package HW5;
+package HW5.dto;
 
 public class CalculatorWithMemory implements ICalculate{
     private int errorCode;
@@ -41,10 +41,7 @@ public class CalculatorWithMemory implements ICalculate{
         return calc.round(a, b);
     }
 
-    @Override
-    public int getErrorCode() {
-        return this.errorCode;
-    }
+
 
     public double getMemory() {
         double returnResult = this.memory;

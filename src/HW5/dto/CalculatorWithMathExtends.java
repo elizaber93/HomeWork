@@ -1,4 +1,4 @@
-package HW5;
+package HW5.dto;
 
 public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculate{
 

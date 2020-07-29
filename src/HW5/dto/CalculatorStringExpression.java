@@ -1,4 +1,4 @@
-package HW5;
+package HW5.dto;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -40,6 +40,7 @@ public class CalculatorStringExpression extends CalculatorWithOperator implement
             Pattern pat1 = Pattern.compile(regExMult);
             Matcher match1 = pat1.matcher(matcher.group());
             if (match1.find()) {
+                System.out.println(match1.group());
                 String[] numbers = matcher.group().split(regExMult);
                 result = calc.mult(Double.parseDouble(numbers[0]), Double.parseDouble(numbers[1]));
                 break;

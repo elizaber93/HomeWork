@@ -1,4 +1,4 @@
-package HW5;
+package HW5.dto;
 
 public class CalculatorWithCounter implements ICalculate{
     private int errorCode;
@@ -46,11 +46,6 @@ public class CalculatorWithCounter implements ICalculate{
 
     public double round(double a, int b) {
         return calc.round(a, b);
-    }
-
-    @Override
-    public int getErrorCode() {
-        return this.errorCode;
     }
 
     public int getCountOperation() {

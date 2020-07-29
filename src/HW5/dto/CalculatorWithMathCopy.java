@@ -1,16 +1,13 @@
-package HW5;
+package HW5.dto;
 
 public class CalculatorWithMathCopy implements ICalculate{
-    int errorCode=0;
-
 
     public double div(double a, double b) {
         double result;
         result = a/b;
         if (result == Double.POSITIVE_INFINITY ||
             result == Double.NEGATIVE_INFINITY) {
-            System.out.println("Error! Деление на ноль!");
-            this.errorCode = -1;
+            throw new ArithmeticException("Деление на 0");
         }
         return result;
     }
@@ -45,8 +42,4 @@ public class CalculatorWithMathCopy implements ICalculate{
         return Math.round(a);
     }
 
-    @Override
-    public int getErrorCode() {
-        return errorCode;
-    }
 }

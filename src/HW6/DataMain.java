@@ -3,6 +3,7 @@ package HW6;
 import Obj.dto.Man;
 import collections.dto.HairManComparator;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -29,6 +30,7 @@ public class DataMain {
         System.out.println("\n Comparable\n");
 
 
+        //List<Object> dataComparable = new;
         DataContainerWithComparable<Object> dataComparable = new DataContainerWithComparable<>();
 
         dataComparable.add("String");

@@ -1,4 +1,4 @@
-package HW5;
+package HW5.dto;
 
 public interface ICalculate {
     double sum( double a, double b);
@@ -8,6 +8,5 @@ public interface ICalculate {
     double involution(double a, int b);
     double root(double a, int b);
     double abs(double a);
-    int getErrorCode();
     double round(double a, int n);
 }
