@@ -5,9 +5,12 @@ import HW5.dto.CalculatorWithOperator;
 
 public class CalculateMain6 {
     public static void main(String[] args) {
+        String mathExpression = "4.1 + 15 * 7 + ((2* 8 / 5-1) ^ 2)";
         CalculatorStringExpression calcString = new CalculatorStringExpression(new CalculatorWithOperator());
-        calcString.findExpressionInBrackets("4.1d + 15d * 7d + (2.8d / 5d) ^ 2d");
-
-
+        try {
+            System.out.println(mathExpression+ " = " + calcString.getAnswer(mathExpression));
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
