@@ -3,9 +3,11 @@ package HW5.dto;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//не работает с вещественными числами, записанными с мантиссами и с отрицательными числами
+
 public class CalculatorStringExpression extends CalculatorWithOperator implements ICalculate {
     String mathExpression = "";
-    private final String firstPriorRegEx = "[0-9\\.]+[ /*^]+[0-9\\.]+";
+    private final String firstPriorRegEx = "-?[0-9\\.]+[ /*^]+-?[0-9\\.]+";
     private final String secondPriorRegEx = "[0-9\\.]+[ \\+-]+[0-9\\.]+";
     private final String bracketRegEx = "[(][0-9/^*\\+\\- \\.]+[)]";
 
@@ -75,7 +77,7 @@ public class CalculatorStringExpression extends CalculatorWithOperator implement
         Matcher matcher = pattern.matcher(mathExpression);
         if (!matcher.find()) return "";
         else {
-            String expRegEx = "[0-9/^*\\+\\- \\.]+";
+            String expRegEx = "-?[0-9/^*\\+\\- \\.]+";
             Pattern pattern1 = Pattern.compile(expRegEx);
             Matcher matcher1 = pattern1.matcher(matcher.group());
             if (matcher1.find()) {
