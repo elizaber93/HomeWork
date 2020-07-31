@@ -21,7 +21,7 @@ public class CalculatorStringExpression extends CalculatorWithOperator implement
      *          false, если допущена ошибка
      */
     public boolean isValid(String mathExpression) {
-        String regExGeneral = "[0-9\\.+-/^* ()]+";
+        String regExGeneral = "[0-9\\.+-/^*()]+";
         Pattern patGeneral = Pattern.compile(regExGeneral);
         Matcher matchGeneral = patGeneral.matcher(mathExpression);
         if (!matchGeneral.find()) return false;
@@ -32,14 +32,14 @@ public class CalculatorStringExpression extends CalculatorWithOperator implement
         while (matchNum.find()) {
             numCount++;
         }
-        String regExOperators = "[\\+\\s\\*\\-\\^\\/]+";
+        String regExOperators = "[\\+\\*\\-\\^\\/]+";
         Pattern patOperators = Pattern.compile(regExOperators);
         Matcher matchOperators = patOperators.matcher(mathExpression);
         int operatorCount = 0;
         while (matchOperators.find()) {
             operatorCount++;
         }
-        if (operatorCount + 1 != numCount) return false;
+        if (operatorCount != numCount-1) return false;
         String regExBrackets = "[()]";
         Pattern patBrackets = Pattern.compile(regExBrackets);
         Matcher matchBrackets = patBrackets.matcher(mathExpression);

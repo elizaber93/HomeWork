@@ -5,7 +5,7 @@ import HW5.dto.CalculatorWithOperator;
 
 public class CalculateMain6 {
     public static void main(String[] args) {
-        String mathExpression = "4.1 + 15 * 7 + ((2* 8 / 5-1) ^ 2)";
+        String mathExpression = "4.1 + 15 * 7 + (((2 * 8 - 16 )/ (5-5)) ^ 2)";
         CalculatorStringExpression calcString = new CalculatorStringExpression(new CalculatorWithOperator());
         try {
             System.out.println(mathExpression+ " = " + calcString.getAnswer(mathExpression));
