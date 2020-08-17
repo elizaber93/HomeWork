@@ -4,9 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Загрузчик курса с сайта Belarusbank
+ * Загрузчик курса с сайта NBRB
  */
-public class BelarusbankLoader extends SiteLoader{
+public class initialNBRBLoader extends SiteLoader{
 
     /**
      * Метод для запуска загрузки курса валют
@@ -15,7 +15,7 @@ public class BelarusbankLoader extends SiteLoader{
      */
     @Override
     public double load(Currency currencyName) {
-        return load("https://belarusbank.by/api/kursExchange", currencyName);
+        return load("https://www.nbrb.by/api/exrates/rates/"+currencyName.getNbrbIdId(), currencyName);
     }
 
     /**
@@ -27,14 +27,8 @@ public class BelarusbankLoader extends SiteLoader{
     @Override
     protected double handle(String content, Currency currencyName) {
         //TODO дописываем код сюда
-
-        String result="";
-        String regEx = currencyName + "_out\":\"[0-9\\.]+";
-        Pattern pattern = Pattern.compile(regEx);
+        Pattern pattern = Pattern.compile("[0-9]+\\.[0-9]+");
         Matcher matcher = pattern.matcher(content);
-        if (matcher.find()) result = matcher.group();
-        pattern = Pattern.compile("[0-9\\.]+");
-        matcher = pattern.matcher(result);
         if (matcher.find()) return Double.parseDouble(matcher.group());
         return 0;
     }

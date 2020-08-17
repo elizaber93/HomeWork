@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Загрузчик курса с сайта Alfa-bank
+ * Загрузчик курса с сайта BelAPB
  */
 public class BelAPBLoader extends SiteLoader{
 

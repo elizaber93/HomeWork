@@ -3,6 +3,8 @@ package HW7_additionalTask.SiteLoader;
 public class Test {
     public static void main(String[] args) {
 
+        System.out.println("Нацбанк_исходный");
+        printRates(new initialNBRBLoader());
         System.out.println("Нацбанк");
         printRates(new NBRBLoader());
         System.out.println("Альфа-банк");

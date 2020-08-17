@@ -20,7 +20,7 @@ public abstract class SiteLoader {
         private String id;
 
         Currency(String nbrbId, String id) {
-            this.nbrbId = id;
+            this.nbrbId = nbrbId;
             this.id = id;
         }
 
