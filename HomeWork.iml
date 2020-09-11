@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="ClassWork" />
+    <orderEntry type="library" name="jline-1.0" level="project" />
   </component>
 </module>

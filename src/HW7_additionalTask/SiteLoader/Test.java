@@ -15,6 +15,7 @@ public class Test {
         printRates(new BPSLoader());
         System.out.println("БелАПБ");
         printRates(new BelAPBLoader());
+
     }
 
     public static void printRates(SiteLoader loader){
