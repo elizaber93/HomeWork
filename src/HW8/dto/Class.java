@@ -11,4 +11,28 @@ public class Class {
     List<Pupil> classList = new ArrayList<>();
     List<Subject> subjects = new ArrayList<>();
     Map<String, Map<String, Integer>> journal = new HashMap<>();
+
+    public Class(String classNumber) {
+        this.classNumber = classNumber;
+    }
+
+    public void setClassTeacher(Teacher teacher) {
+        if (!teacher.isClassTeacher()) {
+            this.classTeacher = teacher;
+        } else {
+            System.out.println("Выберите другого классного руководителя");
+        }
+    }
+    public void addPupil(Pupil pupil) {
+        this.classList.add(pupil);
+        pupil.setClassNumber(this.classNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Class{" +
+                "classNumber='" + classNumber + '\'' +
+                ", classList=" + classList +
+                '}';
+    }
 }

@@ -12,7 +12,9 @@ public class School {
     private List<Pupil> pupils = new ArrayList<>();
     private Map<String, Class> classes = new HashMap<>();
 
-    
+    public void printClassesList() {
+        System.out.println(classes);
+    }
 
     public void printSubjectList() {
         for (Subject subject : subjectList) {
@@ -61,6 +63,35 @@ public class School {
         for (Pupil pupil : pupils) {
             System.out.println(pupil);
         }
+    }
+
+    public void addToClass(String name, Pupil pupil) {
+        if (!classes.containsKey(name)) {
+            classes.put(name, new Class(name));
+        }
+        pupil.setClassNumber(name);
+        this.classes.get(name).addPupil(pupil);
+    }
+
+    public void makeClassesByLatentPotential() {
+        for (Pupil pupil : pupils) {
+            if (pupil.isLatentPotential() && pupil.getBaseIQ()>170) {
+                addToClass("indigo", pupil);
+            }
+            else if (pupil.isLatentPotential() && pupil.getBaseIQ() > 120) {
+                addToClass("A", pupil);
+            }
+            else if (pupil.isLatentPotential() && pupil.getBaseIQ() > 100) {
+                addToClass("B",pupil);
+            }
+            else if (pupil.isLatentPotential() && pupil.getBaseIQ() > 70) {
+                addToClass("C", pupil);
+            } else {
+                addToClass("Z", pupil);
+            }
+        }
+
+
     }
 
 }

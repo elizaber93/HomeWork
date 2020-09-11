@@ -5,6 +5,21 @@ import java.util.List;
 import java.util.Random;
 
 public class Teacher extends Person implements IPerson {
+
+    private List<String> subjects = new ArrayList<>();
+    private Category category;
+    private double certificateScore;
+    private boolean latentPotential;
+    private double dailyCost;
+    private boolean isClassTeacher = false;
+
+    public boolean isClassTeacher() {
+        return this.isClassTeacher;
+    }
+    public void setClassTeacher(boolean value) {
+        this.isClassTeacher = value;
+    }
+
     public Teacher(String fullName, String subject) {
         super(fullName);
         this.subjects.add(subject);
@@ -18,11 +33,7 @@ public class Teacher extends Person implements IPerson {
         this.latentPotential = rnd.nextBoolean();
         this.dailyCost = (double)(rnd.nextInt(500)+350)/22;
     }
-    private List<String> subjects = new ArrayList<>();
-    private Category category;
-    private double certificateScore;
-    private boolean latentPotential;
-    private double dailyCost;
+
 
     public List<String> getSubjects() {
         return subjects;

@@ -71,5 +71,39 @@ public class SchoolMain {
         }
 
         school.printPupilList();
+
+
+        int feature = 0;
+        do {
+            System.out.println("По какому признаку разделить учащихся на классы?\n" +
+                    "1. Поведение\n" +
+                    "2. Успеваемость\n" +
+                    "3. IQ\n" +
+                    "4. Скрытый потенциал\n" +
+                    "5. Ежедневный доход\n" +
+                    "6. Склонность к опозданиям\n" +
+                    "0. Выход");
+            try {
+                feature = scan.nextInt();
+            } catch (Exception e) {
+                System.out.println("Неверные значения");
+            }
+            if (feature >= 0 && feature <= 6) break;
+        } while (true);
+
+        switch (feature) {
+            case 1:
+            case 2:
+            case 3:
+            case 4: school.makeClassesByLatentPotential();break;
+            case 5:
+            case 6:
+            case 0: return;
+        }
+        school.printClassesList();
+
+
+
+
     }
 }

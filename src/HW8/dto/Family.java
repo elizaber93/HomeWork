@@ -20,6 +20,10 @@ public class Family {
         this.dailyBudgetGrowth = this.budget/22;
     }
 
+    public double getBudget() {
+        return this.budget;
+    }
+
     public void addChild(IPerson child){
         children.add(child);
     }
