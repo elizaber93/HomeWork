@@ -12,6 +12,10 @@ public class Class {
     List<Subject> subjects = new ArrayList<>();
     Map<String, Map<String, Integer>> journal = new HashMap<>();
 
+    public int getPupilsNumber() {
+        return this.classList.size();
+    }
+
     public Class(String classNumber) {
         this.classNumber = classNumber;
     }

@@ -2,8 +2,11 @@ package HW8.service;
 
 import HW8.dto.*;
 import HW8.dto.Class;
+import Obj.dto.Man;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class School {
     private static School instance = null;
@@ -11,6 +14,7 @@ public class School {
     private List<Teacher> teachersList = new ArrayList<>();
     private List<Pupil> pupils = new ArrayList<>();
     private Map<String, Class> classes = new HashMap<>();
+    private List<String> classNames = Arrays.asList("A","B","C","Z");
 
     public void printClassesList() {
         System.out.println(classes);
@@ -73,25 +77,18 @@ public class School {
         this.classes.get(name).addPupil(pupil);
     }
 
-    public void makeClassesByLatentPotential() {
-        for (Pupil pupil : pupils) {
-            if (pupil.isLatentPotential() && pupil.getBaseIQ()>170) {
-                addToClass("indigo", pupil);
+
+    public void makeClasses(Comparator <Pupil> comparator) {
+        List<Pupil> result = pupils.stream()
+                .sorted(comparator)
+                .collect(Collectors.toList());
+        for (int i = 0, j = 0; i < result.size(); i++) {
+            if (classes.containsKey(classNames.get(j)) && classes.get(classNames.get(j)).getPupilsNumber() == 25) {
+                j++;
             }
-            else if (pupil.isLatentPotential() && pupil.getBaseIQ() > 120) {
-                addToClass("A", pupil);
-            }
-            else if (pupil.isLatentPotential() && pupil.getBaseIQ() > 100) {
-                addToClass("B",pupil);
-            }
-            else if (pupil.isLatentPotential() && pupil.getBaseIQ() > 70) {
-                addToClass("C", pupil);
-            } else {
-                addToClass("Z", pupil);
-            }
+            addToClass(classNames.get(j), result.get(i));
         }
-
-
     }
+
 
 }
